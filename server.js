@@ -38,16 +38,34 @@ app.post('/messages', (req, res) => {
   })
 })
 
-app.put('/messages', (req, res) => {
+app.put('/increaseCounterInMongoDB', (req, res) => {
+  console.log('This is a request to increment counter')
   console.log(req)
   db.collection('messages')
   .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
     $set: {
-      thumbUp:req.body.thumbUp + 1
+      thumbUp:req.body.counter + 1
     }
   }, {
     sort: {_id: -1},
-    upsert: true
+    upsert: true // irrelevant, it can't create a new thumbs up
+  }, (err, result) => {
+    if (err) return res.send(err)
+    res.send(result)
+  })
+})
+
+app.put('/decreaseCounterInMongoDB', (req, res) => {
+  console.log('This is a request to decrement counter')
+  console.log(req)
+  db.collection('messages')
+  .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
+    $set: {
+      thumbUp:req.body.counter - 1
+    }
+  }, {
+    sort: {_id: -1},
+    upsert: true // irrelevant, it can't create a new thumbs up
   }, (err, result) => {
     if (err) return res.send(err)
     res.send(result)

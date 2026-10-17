@@ -1,18 +1,19 @@
-var thumbUp = document.getElementsByClassName("fa-thumbs-up");
-var trash = document.getElementsByClassName("fa-trash");
+let thumbUpIcon = document.getElementsByClassName("fa-thumbs-up");
+let thumbDownIcon = document.getElementsByClassName("fa-thumbs-down")
+let trash = document.getElementsByClassName("fa-trash");
 
-Array.from(thumbUp).forEach(function(element) {
+Array.from(thumbUpIcon).forEach(function(element) {
       element.addEventListener('click', function(){
         const name = this.parentNode.parentNode.childNodes[1].innerText
-        const ms = this.parentNode.parentNode.childNodes[3].innerText
-        const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
-        fetch('messages', {
+        const msg = this.parentNode.parentNode.childNodes[3].innerText
+        const counter = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
+        fetch('increaseCounterInMongoDB', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             'name': name,
             'msg': msg,
-            'thumbUp':thumbUp
+            'counter': counter
           })
         })
         .then(response => {
@@ -25,6 +26,29 @@ Array.from(thumbUp).forEach(function(element) {
       });
 });
 
+Array.from(thumbDownIcon).forEach(function(element) {
+      element.addEventListener('click', function(){
+        const name = this.parentNode.parentNode.childNodes[1].innerText
+        const msg = this.parentNode.parentNode.childNodes[3].innerText
+        const counter = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
+        fetch('decreaseCounterInMongoDB', {
+          method: 'put',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            'name': name,
+            'msg': msg,
+            'counter': counter 
+          })
+        })
+        .then(response => {
+          if (response.ok) return response.json()
+        })
+        .then(data => {
+          console.log(data)
+          window.location.reload(true)
+        })
+      });
+});
 
 Array.from(trash).forEach(function(element) {
       element.addEventListener('click', function(){
