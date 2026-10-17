@@ -1,4 +1,4 @@
-# ☀️ Fullstack Messaging App
+# ☀️ Fullstack Forum App
 Use this program if you want to leave a message on a forum!
 
 # 📋 How to use
