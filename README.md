@@ -7,7 +7,7 @@ Enter a message.
 Post message, and let other users upvote or downvote your message!
 
 # 📷 Images
-<img width="485" height="1081" alt="Screenshot 2026-10-17 at 3 09 31 PM" src="https://github.com/user-attachments/assets/a16d219d-bab0-42a6-b011-dd5062fbce1b" />
+<img width="1580" height="1279" alt="Screenshot 2026-10-21 at 8 38 59 PM" src="https://github.com/user-attachments/assets/70a47317-007c-43d0-831b-2a835a22d9cf" />
 
 # ✨ Features
 Fully responsive design for desktop and mobile.         
