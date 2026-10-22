@@ -2,7 +2,7 @@
 Use this program if you want to leave a message on a forum!
 
 # 📋 How to use
-Download files. 
+Download files.   
 Enter a message.   
 Post message, and let other users upvote or downvote your message!
 
