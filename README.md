@@ -9,7 +9,7 @@ Enter a message.
 Post message, and let other users upvote or downvote your message!
 
 # 📷 Images
-![Impulse Vs Actual App](public/screenshot.png)
+![Simple](public/Screenshot.png)
 
 # ✨ Features
 Fully responsive design for desktop and mobile.         
