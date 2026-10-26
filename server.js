@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
@@ -6,11 +7,12 @@ const { ObjectID } = require('mongodb')
 
 let db, collection; // lets you declare two variables
 
-const url = "mongodb+srv://demo:demo@cluster0-q2ojb.mongodb.net/test?retryWrites=true";
+const configDB = {"url":process.env.MONGODB_URI}
 const dbName = "demo";
+console.log(configDB)
 
 app.listen(3000, () => {
-  MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
+  MongoClient.connect(configDB.url, { useNewUrlParser: true, useUnifiedTopology: true }, (error, client) => {
     if (error) {
       throw error;
     }
